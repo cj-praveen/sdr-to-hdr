@@ -127,8 +127,9 @@ if __name__ == "__main__":
         "-i",
         target_file,
         "-map", "0:0",
-        "-vsync", "0",
+        "-fps_mode", "passthrough",
         "-c:v", "png",
+        "-compression_level", "0",
         f"{sdr_dir.name}/%04d.png"
     ], check=True)
 
