@@ -154,7 +154,7 @@ if __name__ == "__main__":
             "ffmpeg", "-hide_banner", "-y", "-v", "error", "-stats",
             "-framerate", fps,
             "-i", f"{hdr_dir.name}/%04d.png",
-            "-i", source_video,
+            "-i", target_file,
             "-map", "1:a",
             "-map", "1:s",
             "-c:v", "libx265",
