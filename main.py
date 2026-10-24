@@ -154,6 +154,9 @@ if __name__ == "__main__":
             "ffmpeg", "-hide_banner", "-y", "-v", "error", "-stats",
             "-framerate", fps,
             "-i", f"{hdr_dir.name}/%04d.png",
+            "-i", source_video,
+            "-map", "1:a",
+            "-map", "1:s",
             "-c:v", "libx265",
             "-preset", "medium",
             "-pix_fmt", "yuv420p10le",
@@ -163,6 +166,8 @@ if __name__ == "__main__":
             "-color_primaries", "bt2020",
             "-color_trc", "smpte2084",
             "-colorspace", "bt2020nc",
+            "-c:a", "copy",
+            "-c:s", "copy",
             "-movflags", "+faststart",
             destination
         ],
